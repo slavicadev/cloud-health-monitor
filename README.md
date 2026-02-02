@@ -54,12 +54,12 @@ The monitor service polls external status APIs every 10 minutes and appends the 
 ```text
 .
 ├── .github/workflows/    # CI/CD pipeline configurations
-├── app/                  # Frontend service (Streamlit)
-│   ├── app.py            # Dashboard UI and data visualization
-│   └── requirements.txt  # Frontend dependencies
-├── monitor/              # Backend service (Python engine)
-│   ├── monitor.py        # Health polling and AI logic
-│   └── requirements.txt  # Backend dependencies
+├── app/                  # Frontend logic (Streamlit UI)
+│   └── app.py            
+├── monitor/              # Backend engine (Health polling & AI)
+│   ├── monitor.py        # Main execution loop
+│   └── config.py         # API endpoints and service settings
 ├── data/                 # Shared volume for JSON persistence
 ├── docker-compose.yml    # Container orchestration
-└── Dockerfile            # Multi-stage image build logic
+├── Dockerfile            # Shared build logic for both services
+└── requirements.txt      # Project-wide dependencies

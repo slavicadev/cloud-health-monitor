@@ -2,7 +2,16 @@ version: '3.8'
 services:
   monitor:
     build: .
+    # Note the new path: monitor/monitor.py
+    command: python monitor/monitor.py
     volumes:
-      # This "links" your local data folder to the container's data folder
       - ./data:/app/data
-    restart: always
+
+  dashboard:
+    build: .
+    # Note the new path: app/app.py
+    command: streamlit run app/app.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data

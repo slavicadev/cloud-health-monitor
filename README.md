@@ -46,3 +46,20 @@ I built this tool to move away from manually checking individual status pages. I
 
 ## Logic and Data Flow
 The monitor service polls external status APIs every 10 minutes and appends the results to a shared JSON store. The dashboard service reads this history to generate reliability charts. The "AI" component is a heuristic engine that weights service failures; for example, a Cloudflare outage is weighted more heavily in the stability score than a single service outage due to its impact on the wider internet backbone.
+
+---
+
+## Project Structure
+
+```text
+.
+├── .github/workflows/    # CI/CD pipeline configurations
+├── app/                  # Frontend service (Streamlit)
+│   ├── app.py            # Dashboard UI and data visualization
+│   └── requirements.txt  # Frontend dependencies
+├── monitor/              # Backend service (Python engine)
+│   ├── monitor.py        # Health polling and AI logic
+│   └── requirements.txt  # Backend dependencies
+├── data/                 # Shared volume for JSON persistence
+├── docker-compose.yml    # Container orchestration
+└── Dockerfile            # Multi-stage image build logic

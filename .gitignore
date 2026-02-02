@@ -1,0 +1,4 @@
+venv/
+__pycache__/
+data/status_history.json
+.DS_Store

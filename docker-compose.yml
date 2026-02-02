@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  monitor:
+    build: .
+    volumes:
+      # This "links" your local data folder to the container's data folder
+      - ./data:/app/data
+    restart: always
